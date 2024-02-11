@@ -1,0 +1,17 @@
+<div style="display: grid; place-items: center; height: 10vh;">
+  <h1>Zaloguj sie</h1>
+</div>
+<form class="mx-4 mt-4 mb-4">
+  <div class="mb-3">
+    <label for="Login" class="form-label" id="inputLogin">Login</label>
+    <input type="text" class="form-control" id="Login" aria-describedby="Login" [(ngModel)]="login.login" name="login">
+  </div>
+  <div class="mb-3">
+    <label for="Password" class="form-label" id="inputPassword4">Haslo</label>
+    <input type="password" class="form-control" id="Password" [(ngModel)]="login.password" name="password">
+  </div>
+  <div style="display: grid; place-items: center; height: 10vh;">
+    <button type="button" class="btn btn-primary" (click)="loginUser()">Login</button>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+</form>

@@ -1,0 +1,42 @@
+
+<div class="container mt-4">
+  <h1>Zarejestruj się</h1>
+  <br>
+  <br>
+  <form class="row g-3" >
+
+    <div class="col-md-6">
+      <label for="inputLogin" class="form-label">Login</label>
+      <input type="text" class="form-control" id="inputLogin" [(ngModel)]="user.login" name="login" required minlength="8">
+      <div *ngIf="formSubmitted && !user.login" class="text-danger">Login jest wymagany.</div>
+      <div *ngIf="formSubmitted && user.login && user.login.length < 8" class="text-danger">Login musi mieć co najmniej 8 znaków.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" [(ngModel)]="user.email" name="email" required>
+      <div *ngIf="!isValidEmail(user.email)" class="text-danger">Niepoprawny adres email.</div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Hasło</label>
+      <input type="password" class="form-control" id="inputPassword4" [(ngModel)]="user.password" name="password" required minlength="8">
+      <div *ngIf="formSubmitted && !user.password" class="text-danger">Hasło jest wymagane.</div>
+      <div *ngIf="formSubmitted && user.password && user.password.length < 8" class="text-danger">Hasło musi mieć co najmniej 8 znaków.</div>
+    </div>
+
+    <div class="col-12 mt-4 text-center">
+      <button type="submit" class="btn btn-primary" (click)="addUser()" >Zarejestruj się</button>
+    </div>
+
+    <div class="col-12 mb-4"></div>
+    <br><br><br><br><br><br>
+  </form>
+</div>
+
+<dialog #appDialog class="border border-primary bg-white text-black w-fit max-w-screen-sm">
+  <h1 class="text-2xl font-semibold w-100 border-b border-slate-300 px-2 mb-4"(click)="appDialog.close()">Dziekujemy za rejstracje!</h1>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="appDialog.close()">Close</button>
+  <ng-content></ng-content>
+</dialog>
+
