@@ -1,0 +1,24 @@
+<div class="container">
+<h2>Cennik</h2>
+  <table class="table table-striped">
+    <thead class="table-white">
+  <tr>
+    <th></th>
+    <th>Usluga</th>
+    <th>Cena</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of priceList">
+    <td class="dog-cell" >
+      <img [src]="product.dog" [alt]="product.dog + ' Dog'" width="110px" height="70px">
+    </td>
+    <td class="increased-font"><b>{{ product.produkt }}</b></td>
+    <td class="increased-font"><b>{{ product.cena | currency:'PLN' }}</b></td>
+  </tr>
+  <tr *ngIf="priceList.length === 0">
+    <td colspan="2">Brak dostępnych produktów w cenniku.</td>
+  </tr>
+  </tbody>
+</table>
+</div>
