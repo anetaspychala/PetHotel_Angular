@@ -12,11 +12,11 @@ import {MiddleComponent} from "./middle/middle.component";
 import {TreatmentsComponent} from "./treatments/treatments.component";
 import {TreatmentsContainerComponent} from "./containers/treatments-container/treatments-container.component";
 import {
-  AdminContainerComponentComponent
-} from "./containers/admin-container-component/admin-container-component.component";
-import {
   UserContainerComponentComponent
 } from "./containers/user-container-component/user-container-component.component";
+import {AnimalListComponent} from "./adminPanel/animal-list/animal-list.component";
+import {AdminContainerComponent} from "./containers/admin-container/admin-container.component";
+import {AddAnimalComponent} from "./userPanel/add-animal/add-animal.component";
 
 export const routes: Routes = [
   { path: 'price', component: PriceContainerComponent, children: [
@@ -34,11 +34,13 @@ export const routes: Routes = [
   { path: 'register', component: RegisterContainerComponent, children: [
       { path: '', component: RegisterComponent},
     ]},
-  { path: 'admin', component: AdminContainerComponentComponent, children: [
+  { path: 'admin', component: AdminContainerComponent, children: [
       { path: '', component: AdminComponent},
+      { path: 'animallist', component: AnimalListComponent },
     ]},
   { path: 'user', component: UserContainerComponentComponent, children: [
       { path: '', component: UserComponent},
+      { path: 'addanimal', component: AddAnimalComponent },
     ]},
 ];
 @NgModule({

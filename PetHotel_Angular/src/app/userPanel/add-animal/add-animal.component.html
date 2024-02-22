@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h1>Dodaj zwierze do profilu</h1>
+  <br>
+  <form class="row g-3" >
+    <div class="col-md-6">
+      <label for="inputName" class="form-label">Typ</label>
+      <select class="form-control" id="inputName" [(ngModel)]="animal.type" name="type">
+        <option value="KOT">KOT</option>
+        <option value="PIES">PIES</option>
+        <option value="KRÓLIK">KRÓLIK</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputSurname" class="form-label">Imię</label>
+      <input type="text" class="form-control" id="inputSurname" [(ngModel)]="animal.name" name="NAME">
+    </div>
+    <div class="col-md-6">
+      <label for="Weight" class="form-label">Waga</label>
+      <select class="form-control" id="weight" [(ngModel)]="animal.weight" name="weight">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="Sex" class="form-label">Płeć</label>
+      <select class="form-control" id="sex" [(ngModel)]="animal.sex" name="sex">
+        <option value="MĘSKA">MĘSKA</option>
+        <option value="ŻEŃSKA">ŻEŃSKA</option>
+      </select>
+    </div>
+  <!--  <div class="col-md-6">
+      <label for="inputOwner" class="form-label">Wlasciciel</label>
+      <input type="text" class="form-control" id="inputOwner" [(ngModel)]="animal.ownerId" name="Owner">
+    </div>-->
+    <div class="col-12 mt-4 text-center">
+      <button type="submit" class="btn btn-primary" (click)="addAnimal()" >Dodaj zwierze</button>
+    </div>
+    <div class="col-12 mb-4"></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </form>
+</div>
+
+<dialog #appDialog class="border border-primary bg-white text-black w-fit max-w-screen-sm">
+  <h1 class="text-2xl font-semibold w-100 border-b border-slate-300 px-2 mb-4"(click)="appDialog.close()">Pomyślnie dodano zwierze!</h1>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="appDialog.close()">Close</button>
+  <ng-content></ng-content>
+</dialog>

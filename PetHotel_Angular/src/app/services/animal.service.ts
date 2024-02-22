@@ -1,20 +1,23 @@
 import {Injectable, } from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Animal} from "../animals";
-import {User} from "../users";
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AnimalService {
-  private baseURL = "http://localhost:8080/adminpanel/animals"
-  private postURL = "http://localhost:8080/userpanel/addAnimal"
-  private deleteURL = 'http://localhost:8080/adminpanel/deleteAnimal/{id}';
-  private editURL = 'http://localhost:8080/adminpanel/editAnimal/{id}';
+  private baseURL = "localhost:8080/api/v1/auth/admin/animals"
+  private postURL = "localhost:8080/api/v1/auth/user/addAnimal"
+  private deleteURL = 'localhost:8080/api/v1/auth/admin/deleteAnimal/{id}';
+  private editURL = 'localhost:8080/api/v1/auth/admin/editAnimal/{id}';
   constructor(private httpClient: HttpClient) { }
 
+  requestHeader = new HttpHeaders(
+    {"No-Auth": "True"}
+  );
   getAnimalsList(): Observable<Animal[]>{
     console.log('Calling getAnimalsList');
     return this.httpClient.get<Animal[]>(this.baseURL)

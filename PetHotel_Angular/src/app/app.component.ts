@@ -21,17 +21,21 @@ import {TreatmentsContainerComponent} from "./containers/treatments-container/tr
 import {
   UserContainerComponentComponent
 } from "./containers/user-container-component/user-container-component.component";
-import {
-  AdminContainerComponentComponent
-} from "./containers/admin-container-component/admin-container-component.component";
+import {AnimalService} from "./services/animal.service";
+import {AnimalListComponent} from "./adminPanel/animal-list/animal-list.component";
+import {AddAnimalComponent} from "./userPanel/add-animal/add-animal.component";
+import {AdminContainerComponent} from "./containers/admin-container/admin-container.component";
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule, RegisterComponent, LoginComponent, LoginContainerComponent, HomeComponent, RegisterContainerComponent,AdminComponent, UserComponent, FooterComponent, FormsModule, HomeComponent, PriceComponent, PriceContainerComponent, MiddleComponent, TreatmentsComponent, TreatmentsContainerComponent, UserContainerComponentComponent, AdminContainerComponentComponent ],
-  providers:[UserService],
+  imports: [CommonModule, RouterOutlet, HttpClientModule, RegisterComponent, LoginComponent, LoginContainerComponent, HomeComponent, RegisterContainerComponent,
+    AdminComponent, UserComponent, FooterComponent, FormsModule, HomeComponent, PriceComponent,
+    PriceContainerComponent, MiddleComponent, TreatmentsComponent, TreatmentsContainerComponent, UserContainerComponentComponent,
+     AnimalListComponent, AddAnimalComponent, AdminContainerComponent],
+  providers:[UserService, AnimalService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
