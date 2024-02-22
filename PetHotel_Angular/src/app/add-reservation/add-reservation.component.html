@@ -1,0 +1,57 @@
+<div class="container  mt-4 ">
+  <h1>Zarezerwuj </h1>
+  <br>
+  <form class="row g-3 " (submit)="addReservation()">
+
+    <div class="col-md-6">
+      <label for="inputStartDate" class="form-label">Data Początkowa</label>
+      <mat-form-field appearance="fill">
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Wybierz datę" id="inputStartDate" [(ngModel)]="reservation.startDate" name="start">
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputEndDate" class="form-label">Data Końcowa</label>
+      <mat-form-field appearance="fill">
+        <input matInput [matDatepicker]="endDatePicker" placeholder="Wybierz datę" id="inputEndDate" [(ngModel)]="reservation.endDate" name="end">
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <label for="standard" class="form-label">Standard pokoju</label>
+      <input type="text" class="form-control" id="standard" [(ngModel)]="reservation.roomStandard" name="standard">
+    </div>
+    <div class="col-md-6">
+      <label for="status" class="form-label">Status rezerwacji</label>
+      <input type="text" class="form-control" id="status"  [(ngModel)]="reservation.reservationStatus" name="status">
+    </div>
+    <div class="col-md-6">
+      <label for="cena" class="form-label">Cena</label>
+      <input type="number" class="form-control" id="cena"  [(ngModel)]="reservation.price" name="cena">
+    </div>
+    <div class="col-md-6">
+      <label for="animal" class="form-label">Wielkość zwierzęcia</label>
+      <input type="text" class="form-control" id="animal"  [(ngModel)]="reservation.animalSize" name="animal">
+    </div>
+    <div class="col-md-6">
+      <label for="treatment" class="form-label">Usługi dodatkowe</label>
+      <input type="text" class="form-control" id="treatment"  [(ngModel)]="reservation.additionalTreatment" name="treatment">
+    </div>
+    <div class="col-12 mt-4 text-center">
+      <button type="submit" class="btn btn-primary ">Dodaj rezerwacje</button>
+    </div>
+    <div class="col-12 mb-4"></div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </form>
+</div>
+
+<dialog #appDialog class="border border-primary bg-white text-black w-fit max-w-screen-sm">
+  <h1 class="text-2xl font-semibold w-100 border-b border-slate-300 px-2 mb-4"(click)="appDialog.close()">Pomyślnie dodano rezerwacje!</h1>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="appDialog.close()">Close</button>
+  <ng-content></ng-content>
+</dialog>
+
+

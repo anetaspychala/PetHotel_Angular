@@ -23,19 +23,23 @@ import {
 } from "./containers/user-container-component/user-container-component.component";
 import {AnimalService} from "./services/animal.service";
 import {AnimalListComponent} from "./adminPanel/animal-list/animal-list.component";
-import {AddAnimalComponent} from "./userPanel/add-animal/add-animal.component";
+import {AddAnimalComponent} from "./add-animal/add-animal.component";
 import {AdminContainerComponent} from "./containers/admin-container/admin-container.component";
+import {AddReservationComponent} from "./add-reservation/add-reservation.component";
+import {ReservationService} from "./services/reservation.service";
+import {MatNativeDateModule} from "@angular/material/core";
+
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule, RegisterComponent, LoginComponent, LoginContainerComponent, HomeComponent, RegisterContainerComponent,
-    AdminComponent, UserComponent, FooterComponent, FormsModule, HomeComponent, PriceComponent,
+  imports: [CommonModule, RouterOutlet, HttpClientModule, RegisterComponent, LoginComponent, LoginContainerComponent, RegisterContainerComponent,
+    AdminComponent, UserComponent, FooterComponent, FormsModule, HomeComponent, PriceComponent,MatNativeDateModule,
     PriceContainerComponent, MiddleComponent, TreatmentsComponent, TreatmentsContainerComponent, UserContainerComponentComponent,
-     AnimalListComponent, AddAnimalComponent, AdminContainerComponent],
-  providers:[UserService, AnimalService],
+     AnimalListComponent, AdminContainerComponent, AddReservationComponent, AddAnimalComponent],
+  providers:[UserService, AnimalService, ReservationService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

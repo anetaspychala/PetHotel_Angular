@@ -34,7 +34,9 @@ export class LoginComponent {
           console.error('Unexpected array response:', response);
         } else {
           console.log('Server Response:', response);
-
+          if (this.login) {
+            localStorage.setItem('currentUser', JSON.stringify(this.login));
+          }
           if (response && response.role) {
             if (response.role === Role.USER) {
               this.router.navigate(['/user']);

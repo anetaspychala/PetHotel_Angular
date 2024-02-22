@@ -4,8 +4,9 @@ import {FormsModule} from "@angular/forms";
 
 
 import {RouterLink, RouterOutlet} from "@angular/router";
-import {Animal} from "../../animals";
-import {AnimalService} from "../../services/animal.service";
+import {Animal} from "../animals";
+import {AnimalService} from "../services/animal.service";
+
 
 @Component({
   selector: 'app-add-animal',

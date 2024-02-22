@@ -9,10 +9,10 @@ import {Animal} from "../animals";
 })
 
 export class AnimalService {
-  private baseURL = "localhost:8080/api/v1/auth/admin/animals"
-  private postURL = "localhost:8080/api/v1/auth/user/addAnimal"
-  private deleteURL = 'localhost:8080/api/v1/auth/admin/deleteAnimal/{id}';
-  private editURL = 'localhost:8080/api/v1/auth/admin/editAnimal/{id}';
+  private baseURL = "http://localhost:8080/api/v1/auth/admin/animals"
+  private postURL = "http://localhost:8080/api/v1/auth/user/addAnimal"
+  private deleteURL = 'http://localhost:8080/api/v1/auth/admin/deleteAnimal/{id}';
+  private editURL = 'http://localhost:8080/api/v1/auth/admin/editAnimal/{id}';
   constructor(private httpClient: HttpClient) { }
 
   requestHeader = new HttpHeaders(

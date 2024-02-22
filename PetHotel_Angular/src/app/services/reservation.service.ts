@@ -1,7 +1,6 @@
 import {Injectable, } from '@angular/core';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Animal} from "../animals";
 import {Reservation} from "../reservations";
 
 @Injectable({
@@ -9,12 +8,14 @@ import {Reservation} from "../reservations";
 })
 
 export class ReservationService {
-  private baseURL = "http://localhost:8080/adminpanel/reservations"
-  private postURL = "http://localhost:8080/userpanel/addReservation"
-  private deleteURL = 'http://localhost:8080/adminpanel/deleteReservation/{id}';
-  private editURL = 'http://localhost:8080/adminpanel/editReservation/{id}';
+  private baseURL = "http://localhost:8080/api/v1/auth/admin/reservations"
+  private postURL = "http://localhost:8080/api/v1/auth/user/addReservation"
+  private deleteURL = 'http://localhost:8080/api/v1/auth/admin/deleteReservation/{id}';
+  private editURL = 'http://localhost:8080/api/v1/auth/admin//editReservation/{id}';
   constructor(private httpClient: HttpClient) { }
-
+  requestHeader = new HttpHeaders(
+    {"No-Auth": "True"}
+  );
   getReservationsList(): Observable<Reservation[]>{
     console.log('Calling getReservationsList');
     return this.httpClient.get<Reservation[]>(this.baseURL)

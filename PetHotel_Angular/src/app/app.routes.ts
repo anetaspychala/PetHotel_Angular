@@ -16,7 +16,8 @@ import {
 } from "./containers/user-container-component/user-container-component.component";
 import {AnimalListComponent} from "./adminPanel/animal-list/animal-list.component";
 import {AdminContainerComponent} from "./containers/admin-container/admin-container.component";
-import {AddAnimalComponent} from "./userPanel/add-animal/add-animal.component";
+import {AddAnimalComponent} from "./add-animal/add-animal.component";
+import {AddReservationComponent} from "./add-reservation/add-reservation.component";
 
 export const routes: Routes = [
   { path: 'price', component: PriceContainerComponent, children: [
@@ -41,6 +42,7 @@ export const routes: Routes = [
   { path: 'user', component: UserContainerComponentComponent, children: [
       { path: '', component: UserComponent},
       { path: 'addanimal', component: AddAnimalComponent },
+      { path: 'addreservation', component: AddReservationComponent },
     ]},
 ];
 @NgModule({

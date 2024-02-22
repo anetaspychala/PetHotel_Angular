@@ -6,13 +6,13 @@ import {RouterOutlet} from "@angular/router";
 import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
 import {Animal} from "../../animals";
 import {AnimalService} from "../../services/animal.service";
-import {MatIcon, MatIconModule} from "@angular/material/icon";
+import {MatIcon} from "@angular/material/icon";
 
 
 @Component({
   selector: 'app-animal-list',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule, ReactiveFormsModule,MatIconModule, MatIcon],
+  imports: [CommonModule, RouterOutlet, FormsModule, ReactiveFormsModule, MatIcon],
   templateUrl: './animal-list.component.html',
   styleUrl: './animal-list.component.css'
 })
@@ -40,7 +40,7 @@ export class AnimalListComponent implements OnInit{
         console.log(data);
       },
       error => {
-        console.error('Bład pobierania użytkowników')
+        console.error('Bład pobierania zwierzat')
       });
   }
   deleteAnimal(id: number) {

@@ -7,6 +7,7 @@ import {Login} from "../login";
   providedIn: 'root'
 })
 export class UserService {
+
   private baseURL = "http://localhost:8080/api/v1/auth/register"
   private loginURL = "http://localhost:8080/api/v1/auth/login"
   constructor(private httpClient: HttpClient) { }
