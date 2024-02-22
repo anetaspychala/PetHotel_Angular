@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <br>
+<h2>Lista rezerwacji</h2>
+  <br>
+<table class ="table table-striped">
+  <tr>
+    <th>Id</th>
+ <!--   <th>Numer rezerwacji</th>-->
+    <th>Data poczatkowa</th>
+    <th>Data koncowa</th>
+    <th>Cena</th>
+    <th>Status</th>
+    <th>Standard pokoju</th>
+    <th>Rozmiar zwierzęcia</th>
+    <th>Dodatkowe usługi</th>
+    <th></th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let reservation of reservationList">
+    <td>{{ reservation.id }}</td>
+    <td>{{ reservation.startDate }}</td>
+    <td>{{ reservation.endDate }}</td>
+    <td>{{ reservation.price }}</td>
+    <td>{{ reservation.reservationStatus }}</td>
+    <td>{{ reservation.roomStandard }}</td>
+    <td>{{ reservation.animalSize }}</td>
+    <td>{{ reservation.additionalTreatment }}</td>
+    <button class="delete-button" aria-label="Delete button" (click)="deleteReservation(reservation.id)" >
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button class="edit-button" aria-label="Edit button" (click)="editReservation(reservation.id)">
+      <mat-icon> Edit</mat-icon>
+    </button>
+<!--    <td>{{ reservation.user }}</td>-->
+  </tr>
+  </tbody>
+</table>
+
+<dialog #appDialog class="border border-primary bg-white text-black w-fit max-w-screen-sm">
+  <h1 class="text-2xl font-semibold w-100 border-b border-slate-300 px-2 mb-4"(click)="appDialog.close()">Pomyślnie usunięto rezerwacje</h1>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="appDialog.close()">Close</button>
+  <ng-content></ng-content>
+</dialog>
+
+  <div class="container mt-4" *ngIf="isEditMode">
+  <form #userForm="ngForm" (ngSubmit)="putReservation()">
+    <div class="mb-3">
+      <label for="id" class="form-label">id</label>
+      <input type="number" class="form-control" id="id"  name="id" [(ngModel)]="currentReservationId" >
+    </div>
+    <div class="mb-3">
+      <label for="startDate" class="form-label">Data początkowa</label>
+      <input type="date" class="form-control" id="startDate"  name="startDate" [(ngModel)]="editedStartDate">
+    </div>
+    <div class="mb-3">
+      <label for="endDate" class="form-label">Data Końcowa</label>
+      <input type="date" class="form-control" id="endDate"  name="endDate" [(ngModel)]="editedEndDate">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Cena</label>
+      <input type="number" class="form-control" id="price" name="price" [(ngModel)]="editedPrice">
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status rezerwacji</label>
+      <input type="text" class="form-control" id="status"   name="status" [(ngModel)]="editedReservationStatus">
+    </div>
+    <div class="mb-3">
+      <label for="standard" class="form-label">Standard pokoju</label>
+      <input type="text" class="form-control" id="standard"  name="standard" [(ngModel)]="editedRoomStandard">
+    </div>
+    <div class="mb-3">
+      <label for="animalSize" class="form-label">Wielkość zwierzecia</label>
+      <input type="number" class="form-control" id="animalSize"  name="animalSize" [(ngModel)]="editedAnimalSize">
+    </div>
+    <div class="mb-3">
+      <label for="additionalTreatment" class="form-label">Dodatkowe usługi</label>
+      <input type="text" class="form-control" id="additionalTreatment"  name="additionalTreatment" [(ngModel)]="editedAdditionalTreatment">
+    </div>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+</div>
+
+</div>

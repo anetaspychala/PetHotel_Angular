@@ -22,7 +22,11 @@
     </div>
     <div class="col-md-6">
       <label for="standard" class="form-label">Standard pokoju</label>
-      <input type="text" class="form-control" id="standard" [(ngModel)]="reservation.roomStandard" name="standard">
+      <select class="form-control" id="standard" [(ngModel)]="reservation.roomStandard" name="standard">
+        <option value="BASIC">BASIC</option>
+        <option value="STANDARD">STANDARD</option>
+        <option value="PREMIUM">PREMIUM</option>
+      </select>
     </div>
     <div class="col-md-6">
       <label for="status" class="form-label">Status rezerwacji</label>
@@ -34,11 +38,19 @@
     </div>
     <div class="col-md-6">
       <label for="animal" class="form-label">Wielkość zwierzęcia</label>
-      <input type="text" class="form-control" id="animal"  [(ngModel)]="reservation.animalSize" name="animal">
+      <select class="form-control" id="animal"  [(ngModel)]="reservation.animalSize" name="animal">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
     </div>
     <div class="col-md-6">
       <label for="treatment" class="form-label">Usługi dodatkowe</label>
-      <input type="text" class="form-control" id="treatment"  [(ngModel)]="reservation.additionalTreatment" name="treatment">
+      <select class="form-control" id="treatment"  [(ngModel)]="reservation.additionalTreatment" name="treatment">
+        <option value="1">BEHAWIORYSTA</option>
+        <option value="2">FRYZJER</option>
+        <option value="3">WETERYNARZ</option>
+      </select>
     </div>
     <div class="col-12 mt-4 text-center">
       <button type="submit" class="btn btn-primary ">Dodaj rezerwacje</button>

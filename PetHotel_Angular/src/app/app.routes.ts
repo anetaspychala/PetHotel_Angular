@@ -18,6 +18,7 @@ import {AnimalListComponent} from "./adminPanel/animal-list/animal-list.componen
 import {AdminContainerComponent} from "./containers/admin-container/admin-container.component";
 import {AddAnimalComponent} from "./add-animal/add-animal.component";
 import {AddReservationComponent} from "./add-reservation/add-reservation.component";
+import {ReservationListComponent} from "./reservation-list/reservation-list.component";
 
 export const routes: Routes = [
   { path: 'price', component: PriceContainerComponent, children: [
@@ -38,6 +39,7 @@ export const routes: Routes = [
   { path: 'admin', component: AdminContainerComponent, children: [
       { path: '', component: AdminComponent},
       { path: 'animallist', component: AnimalListComponent },
+      { path: 'reservationslist', component: ReservationListComponent }
     ]},
   { path: 'user', component: UserContainerComponentComponent, children: [
       { path: '', component: UserComponent},
