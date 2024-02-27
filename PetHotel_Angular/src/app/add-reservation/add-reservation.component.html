@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-6">
       <label for="status" class="form-label">Status rezerwacji</label>
-      <input type="text" class="form-control" id="status"  [(ngModel)]="reservation.reservationStatus" name="status">
+      <input type="text" class="form-control" id="status"  [(ngModel)]="reservation.reservationStatus" name="status" readonly>
     </div>
     <div class="col-md-6">
       <label for="cena" class="form-label">Cena</label>
@@ -39,17 +39,17 @@
     <div class="col-md-6">
       <label for="animal" class="form-label">Wielkość zwierzęcia</label>
       <select class="form-control" id="animal"  [(ngModel)]="reservation.animalSize" name="animal">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
+        <option value=10>10</option>
+        <option value=20>20</option>
+        <option value=30>30</option>
       </select>
     </div>
     <div class="col-md-6">
       <label for="treatment" class="form-label">Usługi dodatkowe</label>
       <select class="form-control" id="treatment"  [(ngModel)]="reservation.additionalTreatment" name="treatment">
-        <option value="1">BEHAWIORYSTA</option>
-        <option value="2">FRYZJER</option>
-        <option value="3">WETERYNARZ</option>
+        <option value="BEHAWIORYSTA">BEHAWIORYSTA</option>
+        <option value="FRYZJER">FRYZJER</option>
+        <option value="WETERYNARZ">WETERYNARZ</option>
       </select>
     </div>
     <div class="col-12 mt-4 text-center">

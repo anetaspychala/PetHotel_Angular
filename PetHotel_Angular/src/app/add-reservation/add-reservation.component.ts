@@ -24,14 +24,55 @@ export class AddReservationComponent {
     startDate: new Date(),
     endDate: new Date(),
     price: 0,
-    reservationStatus: '',
+    reservationStatus: 'Niepotwierdzony',
     roomStandard:'',
     animalSize: 0,
     additionalTreatment: ''
   };
   constructor(private reservationService: ReservationService) {
   }
+  calculatePrice() {
+    const millisecondsPerDay = 24 * 60 * 60 * 1000;
+    const startDate = new Date(this.reservation.startDate);
+    const endDate = new Date(this.reservation.endDate);
+    const numberOfDays = Math.round(Math.abs((endDate.getTime() - startDate.getTime()) / millisecondsPerDay));
+
+    let roomStandardPrice = 0;
+    let additionalPrice = 0;
+    let animalSizePrice = 0;
+    switch (this.reservation.additionalTreatment) {
+      case 'WETERYNARZ':
+        additionalPrice = 200;
+        break;
+      case 'FRYZJER':
+        additionalPrice = 230;
+        break;
+      case 'BEHAWIORYSTA':
+        additionalPrice = 100;
+        break;
+    }
+
+    switch (this.reservation.roomStandard) {
+      case 'BASIC':
+        roomStandardPrice = 80;
+        break;
+      case 'STANDARD':
+        roomStandardPrice = 130;
+        break;
+      case 'PREMIUM':
+        roomStandardPrice = 160;
+        break;
+      default:
+        roomStandardPrice = 80;
+    }
+    if (this.reservation.animalSize!=10){
+      animalSizePrice = 20;
+    }
+    this.reservation.price = (numberOfDays * animalSizePrice) + (numberOfDays * roomStandardPrice) + (this.reservation.additionalTreatment ? additionalPrice : 0);
+  }
   addReservation() {
+    console.log(this.reservation.animalSize)
+    this.calculatePrice();
     this.reservationService.postReservation(this.reservation).subscribe(
       response => {
         console.log('Reservation added successfully', response);
