@@ -7,22 +7,24 @@
 
     <div class="col-md-6">
       <label for="inputLogin" class="form-label">Login</label>
-      <input type="text" class="form-control" id="inputLogin" [(ngModel)]="user.login" name="login" required minlength="8">
+      <input type="text" class="form-control" id="inputLogin" [(ngModel)]="user.login" name="login" required minlength="5" maxlength="50">
       <div *ngIf="formSubmitted && !user.login" class="text-danger">Login jest wymagany.</div>
-      <div *ngIf="formSubmitted && user.login && user.login.length < 8" class="text-danger">Login musi mieć co najmniej 8 znaków.</div>
+      <div *ngIf="formSubmitted && user.login && user.login.length < 5" class="text-danger">Login musi mieć co najmniej 5 znaków.</div>
+      <div *ngIf="formSubmitted && user.login && user.login.length > 50" class="text-danger">Login nie może przekraczać 50 znaków.</div>
     </div>
 
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Email</label>
       <input type="email" class="form-control" id="inputEmail4" [(ngModel)]="user.email" name="email" required>
-      <div *ngIf="!isValidEmail(user.email)" class="text-danger">Niepoprawny adres email.</div>
+      <div *ngIf="!isValidEmail(user.email)" class="text-danger">Adres email jest wymagany.</div>
     </div>
 
     <div class="col-md-6">
       <label for="inputPassword4" class="form-label">Hasło</label>
-      <input type="password" class="form-control" id="inputPassword4" [(ngModel)]="user.password" name="password" required minlength="8">
+      <input type="password" class="form-control" id="inputPassword4" [(ngModel)]="user.password" name="password" required minlength="8" maxlength="75">
       <div *ngIf="formSubmitted && !user.password" class="text-danger">Hasło jest wymagane.</div>
       <div *ngIf="formSubmitted && user.password && user.password.length < 8" class="text-danger">Hasło musi mieć co najmniej 8 znaków.</div>
+      <div *ngIf="formSubmitted && user.password && user.password.length > 75" class="text-danger">Hasło ie może przekraczać 75 znaków.</div>
     </div>
 
     <div class="col-12 mt-4 text-center">
