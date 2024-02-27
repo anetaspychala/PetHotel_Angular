@@ -65,10 +65,13 @@ export class AddReservationComponent {
       default:
         roomStandardPrice = 80;
     }
-    if (this.reservation.animalSize==20){
-      animalSizePrice = 20;
-    }if(this.reservation.animalSize==30){
+
+
+    if(this.reservation.animalSize.valueOf()==30){
       animalSizePrice = 40;
+    }
+    else if (this.reservation.animalSize.valueOf()==20){
+      animalSizePrice = 20;
     }else{
       animalSizePrice=0;
     }
