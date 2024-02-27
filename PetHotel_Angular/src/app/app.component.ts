@@ -28,6 +28,7 @@ import {AdminContainerComponent} from "./containers/admin-container/admin-contai
 import {AddReservationComponent} from "./add-reservation/add-reservation.component";
 import {ReservationService} from "./services/reservation.service";
 import {MatNativeDateModule} from "@angular/material/core";
+import {UserListComponent} from "./user-list/user-list.component";
 
 
 
@@ -38,7 +39,7 @@ import {MatNativeDateModule} from "@angular/material/core";
   imports: [CommonModule, RouterOutlet, HttpClientModule, RegisterComponent, LoginComponent, LoginContainerComponent, RegisterContainerComponent,
     AdminComponent, UserComponent, FooterComponent, FormsModule, HomeComponent, PriceComponent,MatNativeDateModule,
     PriceContainerComponent, MiddleComponent, TreatmentsComponent, TreatmentsContainerComponent, UserContainerComponentComponent,
-     AnimalListComponent, AdminContainerComponent, AddReservationComponent, AddAnimalComponent],
+     AnimalListComponent, AdminContainerComponent, AddReservationComponent, AddAnimalComponent, UserListComponent],
   providers:[UserService, AnimalService, ReservationService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

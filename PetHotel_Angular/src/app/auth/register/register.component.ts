@@ -20,6 +20,7 @@ export class RegisterComponent {
   cdr = inject(ChangeDetectorRef);
 
   user: User ={
+    id: 0,
     login: '',
     email: '',
     password: '',
