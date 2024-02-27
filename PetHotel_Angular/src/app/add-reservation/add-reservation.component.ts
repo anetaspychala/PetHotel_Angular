@@ -65,13 +65,16 @@ export class AddReservationComponent {
       default:
         roomStandardPrice = 80;
     }
-    if (this.reservation.animalSize!=10){
+    if (this.reservation.animalSize==20){
       animalSizePrice = 20;
+    }if(this.reservation.animalSize==30){
+      animalSizePrice = 40;
+    }else{
+      animalSizePrice=0;
     }
     this.reservation.price = (numberOfDays * animalSizePrice) + (numberOfDays * roomStandardPrice) + (this.reservation.additionalTreatment ? additionalPrice : 0);
   }
   addReservation() {
-    console.log(this.reservation.animalSize)
     this.calculatePrice();
     this.reservationService.postReservation(this.reservation).subscribe(
       response => {
